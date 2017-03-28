@@ -1,5 +1,42 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Baumans', cursive;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,h2,h3 {
+  font-family: 'Exo', sans-serif;
+}
+
+.App-header {
+  background: #e7ffff;
+}
+
+.App-header a {
+  color: #00A2FF;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: .25em;
+}
+
+.App-header li {
+  list-style: none;
+  padding: .25em;
+}
+
+.App-header h2 {
+  font-size: 2.5rem;
+}
+
+.App-header a:hover {
+  color: #e0e0e0;
+  background-color: #179e2c;
+}
+
+.App-header a:last-child {
+}
+
+.container {
+  margin: 0 auto;
+  width: 980px;
 }
