@@ -1,49 +1,95 @@
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
+import {
+  config,
+  Container
+} from 'rebass'
 import './App.css'
-import Logo from './Logo/Logo'
-import Navigation from './Navigation/Navigation'
-import Home from './Home/Home'
-import Contact from './Contact/Contact'
-import Portfolio from './Portfolio/Portfolio'
+import {
+  Header,
+  Home,
+  Contact,
+  Portfolio,
+  Footer
+} from '.'
+import theme from '../theme'
 
-const App = () => {
-  return (
-    <Router>
-      <Route render={({ location }) => (
-        <div className="App">
-          <div className="App-header">
-            <h2>Legato</h2>
-            <Navigation/>
-            <Logo width="50%" />
-          </div>
-          <div className="App-content">
-            <ReactCSSTransitionGroup
-                transitionName="fade"
-                transitionEnterTimeout={500}
-                transitionLeaveTimeout={500}
-              >
-              <Route
-                location={location}
-                key={location.key + "home"}
-                exact path="/" component={Home}/>
-              <Route
-                location={location}
-                key={location.key + "contact"}
-                path="/contact"
-                component={Contact}/>
-              <Route
-                location={location}
-                key={location.key + "portfolio"}
-                path="/portfolio"
-                component={Portfolio}/>
-            </ReactCSSTransitionGroup>
-          </div>
-        </div>
-      )}/>
-    </Router>
-  )
+class App extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      ...config,
+      ...theme
+    }
+  }
+
+  static childContextTypes = {
+    rebass: React.PropTypes.object
+  }
+
+  getChildContext () {
+    return {
+      rebass: this.state
+    }
+  }
+
+  render () {
+    const {
+      fontFamily,
+      fontWeight,
+      letterSpacing,
+      color,
+      backgroundColor,
+    } = this.state
+
+    return (
+      <div style={{
+          fontFamily,
+          fontWeight,
+          letterSpacing,
+          color,
+          backgroundColor
+        }}>
+        <Router>
+          <Route render={({ location }) => (
+            <div>
+              <Header/>
+              <Container style={{
+                transition: 'transform 1s ease-out',
+                transform: 'translateX(0)'
+              }}>
+                <ReactCSSTransitionGroup
+                  transitionName="fade"
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={500}>
+                  <Route
+                    location={location}
+                    key={location.key + "home"}
+                    exact path="/"
+                    component={Home}/>
+                  <Route
+                    location={location}
+                    key={location.key + "contact"}
+                    path="/contact"
+                    component={Contact}/>
+                  <Route
+                    location={location}
+                    key={location.key + "portfolio"}
+                    path="/portfolio"
+                    component={Portfolio}/>
+                  </ReactCSSTransitionGroup>
+              </Container>
+              <Footer/>
+            </div>
+          )}/>
+        </Router>
+      </div>
+    )
+  }
 }
 
 export default App

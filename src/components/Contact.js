@@ -1,8 +1,32 @@
 import React from 'react'
+import {
+  Input,
+  Textarea,
+  Button,
+  Space
+} from 'rebass'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div>
+      <form>
+        <Input
+          name='name'
+          label='Name'
+          value={""}/>
+        <Input
+          name='email'
+          label='Email Address'
+          value={""}/>
+        <Textarea
+          value={""}
+          name='message'
+          label='Message'/>
+        <Button children='Send' />
+        <Space />
+        <Button theme='secondary' children='Cancel' />
+      </form>
+    </div>
   )
 }
 

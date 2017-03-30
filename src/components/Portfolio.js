@@ -1,8 +1,11 @@
 import React from 'react'
+import { Logo } from '.'
 
 const Portfolio = () => {
   return (
-    <div>Portfolio</div>
+    <div>
+      <Logo/>
+    </div>
   )
 }
 

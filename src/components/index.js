@@ -1,0 +1,8 @@
+export { default as App } from './App'
+export { default as Header } from './Header'
+export { default as Contact } from './Contact'
+export { default as Home } from './Home'
+export { default as Logo } from './Logo'
+export { default as Navigation } from './Navigation'
+export { default as Portfolio } from './Portfolio'
+export { default as Footer } from './Footer'

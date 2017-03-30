@@ -1,8 +1,11 @@
 import React from 'react'
+import { Text } from 'rebass'
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <div>Smoothing the process of custom software development to keep your business singing.</div>
+    <div>
+      <Text children="Smoothing the process of custom software development to keep your business singing."/>
+    </div>
   )
 }
 
