@@ -5,8 +5,13 @@ import {
   Route
 } from 'react-router-dom'
 import {
+  wrapSwitch,
+  withScroll
+} from 'rrc'
+import {
   config,
-  Container
+  Container,
+  Message
 } from 'rebass'
 import './App.css'
 import {
@@ -46,6 +51,8 @@ class App extends React.Component {
       backgroundColor,
     } = this.state
 
+    const TranSwitch = wrapSwitch(ReactCSSTransitionGroup)
+
     return (
       <div style={{
           fontFamily,
@@ -58,30 +65,23 @@ class App extends React.Component {
           <Route render={({ location }) => (
             <div>
               <Header/>
-              <Container style={{
-                transition: 'transform 1s ease-out',
-                transform: 'translateX(0)'
-              }}>
-                <ReactCSSTransitionGroup
+              <Container>
+                <TranSwitch
                   transitionName="fade"
+                  component="div"
                   transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}>
-                  <Route
-                    location={location}
-                    key={location.key + "home"}
-                    exact path="/"
-                    component={Home}/>
-                  <Route
-                    location={location}
-                    key={location.key + "contact"}
-                    path="/contact"
-                    component={Contact}/>
-                  <Route
-                    location={location}
-                    key={location.key + "portfolio"}
-                    path="/portfolio"
-                    component={Portfolio}/>
-                  </ReactCSSTransitionGroup>
+                  transitionLeaveTimeout={500}
+                  routes={[
+                    {path: "/", exact: true, component: withScroll(Home, {propId: () => "#home"})},
+                    {path: "/contact", component: withScroll(Contact, {propId: () => "#contact"})},
+                    {path: "/portfolio", component: withScroll(Portfolio, {propId: () => "#portfolio"})},
+                    {render: () => (
+                      <Message
+                        rounded
+                        theme="error"
+                        children="So sorry. Whatever you're seeking is not here."/>
+                    )}
+                  ]}/>
               </Container>
               <Footer/>
             </div>

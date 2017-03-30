@@ -1,12 +1,8 @@
 import React from 'react'
 import { Text } from 'rebass'
 
-const Home = (props) => {
-  return (
-    <div>
-      <Text children="Smoothing the process of custom software development to keep your business singing."/>
-    </div>
-  )
-}
-
-export default Home
+export default (props) => (
+  <div id="home">
+    <Text children="Smoothing the process of custom software development to keep your business singing."/>
+  </div>
+)
