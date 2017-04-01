@@ -6,6 +6,7 @@
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 500ms ease-in;
+  /*animation: move 1s;*/
 }
 
 .fade-appear {
@@ -26,4 +27,13 @@
 .fade-leave.fade-leave-active {
   opacity: 0;
   transition: opacity 300ms ease-in;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -500px);
+  }
 }

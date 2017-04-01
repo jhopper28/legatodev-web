@@ -5,7 +5,7 @@ import {
   Space
 } from 'rebass'
 
-export default () => (
+const Footer = () => (
   <div>
     <BaseFooter
       color="white"
@@ -16,3 +16,5 @@ export default () => (
     </BaseFooter>
   </div>
 )
+
+export default Footer

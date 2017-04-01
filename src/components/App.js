@@ -69,12 +69,12 @@ class App extends React.Component {
                 <TranSwitch
                   transitionName="fade"
                   component="div"
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}
+                  transitionEnterTimeout={1000}
+                  transitionLeaveTimeout={1000}
                   routes={[
-                    {path: "/", exact: true, component: withScroll(Home, {propId: () => "#home"})},
-                    {path: "/contact", component: withScroll(Contact, {propId: () => "#contact"})},
-                    {path: "/portfolio", component: withScroll(Portfolio, {propId: () => "#portfolio"})},
+                    {path: "/", exact: true, component: Home},
+                    {path: "/contact", component: Contact},
+                    {path: "/portfolio", component: Portfolio},
                     {render: () => (
                       <Message
                         rounded
@@ -83,7 +83,6 @@ class App extends React.Component {
                     )}
                   ]}/>
               </Container>
-              <Footer/>
             </div>
           )}/>
         </Router>

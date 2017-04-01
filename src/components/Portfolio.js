@@ -1,8 +1,10 @@
 import React from 'react'
 import { Logo } from '.'
 
-export default (props) => (
+const Portfolio = () => (
   <div id="portfolio">
     <Logo/>
   </div>
 )
+
+export default Portfolio

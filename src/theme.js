@@ -13,7 +13,7 @@ const baseColors = {
 
 const theme = {
   fontFamily: 'Open Sans, sans-serif',
-  letterSpacing: '.1em',
+  letterSpacing: '.1rem',
   color: baseColors.black,
   backgroundColor: baseColors.white,
 
@@ -31,7 +31,21 @@ const theme = {
   inverted: baseColors.black,
 
   scale: [
-    0, 16, 20, 64, 128
+    0,
+    '1rem',
+    '1.25rem',
+    '4rem',
+    '8rem'
+  ],
+
+  fontSizes: [
+    '3rem',
+    '2rem',
+    '1.5rem',
+    '1.25rem',
+    '1rem',
+    '.875rem',
+    '.75rem'
   ],
 
   bold: 700,
@@ -40,7 +54,7 @@ const theme = {
     fontFamily: 'Exo, sans-serif'
   },
   Button: {
-    fontSize: 20
+    fontSize: '1.25rem'
   }
 }
 

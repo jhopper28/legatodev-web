@@ -6,24 +6,24 @@ import {
   Space
 } from 'rebass'
 
-export default (props) => (
+const Contact = () => (
   <div id="contact">
     <form>
       <Input
-        name='name'
-        label='Name'
-        value={""}/>
+        name="name"
+        label="Name"/>
       <Input
-        name='email'
-        label='Email Address'
-        value={""}/>
+        name="email"
+        type="email"
+        label="Email Address"/>
       <Textarea
-        value={""}
-        name='message'
-        label='Message'/>
-      <Button children='Send' />
+        name="message"
+        label="Message"/>
+      <Button children="Send" />
       <Space />
-      <Button theme='secondary' children='Cancel' />
+      <Button theme="secondary" children="Cancel" />
     </form>
   </div>
 )
+
+export default Contact
